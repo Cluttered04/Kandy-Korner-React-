@@ -4,5 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import KandyKorner from "./components/KandyKorner.js"
+import { BrowserRouter as Router} from "react-router-dom"
 
-ReactDOM.render(<KandyKorner />, document.querySelector("#root"))
+ReactDOM.render(<Router><KandyKorner /></Router>, document.querySelector("#root"))
