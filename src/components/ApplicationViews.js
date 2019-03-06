@@ -6,30 +6,39 @@ import StoreList from "./StoreList"
 
 
 class ApplicationViews extends Component {
-    storeArray = [
-        {id: 1, name: "Super Candy Store", location: "Nashville"}, {id: 2, name: "Extra Special Candy Store", location: "Huntington"}
-    ]
 
-    employeeArray = [
-        {id: 1, name: "Sandy"}, {id:2, name: "Kandy"}, {id: 3, name: "Mandy"}
 
-    ]
+    componentDidMount(){
+        const newState = {}
+        fetch("http://localhost:5002/stores")
+        .then(stores => stores.json())
+        .then(parsedStores => {
+            newState.stores = parsedStores
+            return fetch("http://localhost:5002/employees")
+            .then(employees => employees.json())
+            .then(parsedEmployees => {
+                newState.employees = parsedEmployees
+                return fetch("http://localhost:5002/candyTypes")
+                .then(candyTypes => candyTypes.json())
+                .then(parsedTypes => {
+                    newState.candyTypes = parsedTypes
+                    return fetch("http://localhost:5002/candies")
+                    .then(candies => candies.json())
+                    .then(parsedCandies => {
+                        newState.candies = parsedCandies
+                        this.setState(newState);
+                    })
+                })
+            })
+        })
+    }
 
-    candyTypeArray = [
-        {id:1, type: "hard"}, {id: 2, type: "chocolate"}, {id:3, type: "Brittle"}
-
-    ]
-
-    candyArray = [
-        {id: 1, name: "Werther's", type: 1}, {id:2, name: "Truffles", type: 2}, {id: 3, name: "Peanut", type: 3}
-
-    ]
 
     state = {
-        stores : this.storeArray,
-        employees : this.employeeArray,
-        candyTypes : this.candyTypeArray,
-        candies : this.candyArray,
+        stores : [],
+        employees : [],
+        candyTypes : [],
+        candies : [],
     }
 
     render() {

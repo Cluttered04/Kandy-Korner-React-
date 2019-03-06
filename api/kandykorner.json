@@ -1,0 +1,28 @@
+{
+"stores" : [
+    {"id": 1, "name": "Super Candy Store", "location": "Nashville"},
+    {"id": 2, "name": "Extra Special Candy Store", "location": "Huntington"}
+],
+
+"employees" : [
+    {"id": 1, "name": "Sandy"},
+    {"id":2, "name": "Kandy"},
+    {"id": 3, "name": "Mandy"}
+
+],
+
+"candyTypes" : [
+    {"id":1, "type": "hard"},
+    {"id": 2, "type": "chocolate"},
+    {"id":3, "type": "Brittle"}
+
+],
+
+"candies" : [
+    {"id": 1, "name": "Werther's", "type": 1},
+    {"id":2, "name": "Truffles", "type": 2},
+     {"id": 3, "name": "Peanut", "type": 3}
+
+]
+
+}
