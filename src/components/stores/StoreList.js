@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import {Link} from "react-router-dom"
 
 class StoreList extends Component {
     render() {
@@ -6,7 +7,8 @@ class StoreList extends Component {
             <div>
                 <h1>Stores</h1>
                 {this.props.stores.map((store) => {
-                    return <p key={store.id}>{store.name} {store.location}</p>
+                    return <div key={store.id}><Link to={`/stores/${store.id}`}>{store.name}</Link></div>
+
                 })}
             </div>
         )
